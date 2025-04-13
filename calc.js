@@ -30,11 +30,9 @@ function backspace() {
 
 function calculate() {
   try {
-    // Replace × with * for evaluation
     let expression = displayValue.replace(/×/g, "*");
     displayValue = String(eval(expression));
 
-    // Handle decimal places to prevent long floating point numbers
     if (displayValue.includes(".")) {
       const parts = displayValue.split(".");
       if (parts[1].length > 8) {
@@ -42,7 +40,6 @@ function calculate() {
       }
     }
 
-    // Check for division by zero
     if (displayValue === "Infinity" || displayValue === "-Infinity") {
       displayValue = "Error";
     }
